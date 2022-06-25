@@ -7,9 +7,9 @@ import {
     Menu,
 } from '@mui/material'
 import LoginIcon from '@mui/icons-material/Login'
-import { AppHeader, AuthLink, NavTitle } from '@/templates/Header/style'
+import { AppHeader, AuthLink, NavTitle } from 'templates/Header/style'
 import { useState } from 'react'
-import { LogoutBtn } from '@/templates/Logout'
+import { LogoutBtn } from 'templates/Logout'
 
 export const Header = () => {
     const isAuth = localStorage.getItem('auth_name')

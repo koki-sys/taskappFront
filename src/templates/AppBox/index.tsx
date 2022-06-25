@@ -1,7 +1,7 @@
 import { CardContent, Box, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 import LaunchIcon from '@mui/icons-material/Launch'
-import { AppCard, Application } from '@/templates/AppBox/style'
+import { AppCard, Application } from 'templates/AppBox/style'
 
 export const AppBox = () => {
     return (

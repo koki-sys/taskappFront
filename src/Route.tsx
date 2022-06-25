@@ -1,9 +1,9 @@
-import { HeaderLayout } from '@/layouts/Header'
-import { Dashboard } from '@/pages/DashBoard'
-import { Task } from '@/pages/Task'
+import { HeaderLayout } from 'layouts/Header'
+import { Dashboard } from 'pages/DashBoard'
+import { Task } from 'pages/Task'
 import { useRoutes, Navigate } from 'react-router'
-import { LoginPage } from '@/pages/LoginPage'
-import { RegisterPage } from '@/pages/RegisterPage'
+import { LoginPage } from 'pages/LoginPage'
+import { RegisterPage } from 'pages/RegisterPage'
 
 export const RootRouter = () => {
     const name = () => localStorage.getItem('auth_name')

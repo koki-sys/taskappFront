@@ -1,6 +1,6 @@
 import { Typography, Card, CardContent } from '@mui/material'
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd'
-import { ContentLayout, ContentBox } from '@/pages/Task/style'
+import { ContentLayout, ContentBox } from 'pages/Task/style'
 
 export const Task = () => {
     return (

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import swal from 'sweetalert'
 import { Link, useNavigate } from 'react-router-dom'
-import { RegistCard, RegistForm } from '@/templates/Register/style'
+import { RegistCard, RegistForm } from 'templates/Register/style'
 import { Box, Button, CardContent, TextField, Typography } from '@mui/material'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'

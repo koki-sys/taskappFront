@@ -8,7 +8,7 @@ import {
 } from '@mui/material'
 import LaunchIcon from '@mui/icons-material/Launch'
 import { Link } from 'react-router-dom'
-import { PostCard } from '@/templates/PostBox/style'
+import { PostCard } from 'templates/PostBox/style'
 
 export const PostBox = () => {
     return (
