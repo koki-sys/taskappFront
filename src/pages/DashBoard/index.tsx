@@ -1,8 +1,8 @@
-import { AppBox } from '@/templates/AppBox'
-import { TaskBox } from '@/templates/TaskBox'
-import { PostBox } from '@/templates/PostBox'
-import { OpinionBox } from '@/templates/OpinionBox'
-import { ContentLayout, ContentBox } from '@/pages/DashBoard/style'
+import { AppBox } from 'templates/AppBox'
+import { TaskBox } from 'templates/TaskBox'
+import { PostBox } from 'templates/PostBox'
+import { OpinionBox } from 'templates/OpinionBox'
+import { ContentLayout, ContentBox } from 'pages/DashBoard/style'
 import { Typography } from '@mui/material'
 
 export const Dashboard = () => {

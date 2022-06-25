@@ -8,7 +8,7 @@ import {
 } from '@mui/material'
 import LaunchIcon from '@mui/icons-material/Launch'
 import { Link } from 'react-router-dom'
-import { OpinionCard } from '@/templates/OpinionBox/style'
+import { OpinionCard } from 'templates/OpinionBox/style'
 
 export const OpinionBox = () => {
     return (

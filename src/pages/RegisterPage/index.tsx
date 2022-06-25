@@ -1,5 +1,5 @@
-import { Register } from '@/templates/Register'
-import { ContentBox, ContentLayout } from '@/pages/RegisterPage/style'
+import { Register } from 'templates/Register'
+import { ContentBox, ContentLayout } from 'pages/RegisterPage/style'
 
 export const RegisterPage = () => {
     return (

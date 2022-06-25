@@ -1,5 +1,5 @@
-import { Login } from '@/templates/Login'
-import { ContentBox, ContentLayout } from '@/pages/LoginPage/style'
+import { Login } from 'templates/Login'
+import { ContentBox, ContentLayout } from 'pages/LoginPage/style'
 
 export const LoginPage = () => {
     return (
