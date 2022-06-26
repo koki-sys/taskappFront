@@ -6,11 +6,9 @@ import { LoginPage } from 'pages/LoginPage'
 import { RegisterPage } from 'pages/RegisterPage'
 
 export const RootRouter = () => {
-    const name = () => localStorage.getItem('auth_name')
-
     return useRoutes([
         {
-            element: name() ? <HeaderLayout /> : <Navigate to="/login" />,
+            element: <HeaderLayout />,
             children: [
                 { path: '/', element: <Dashboard /> },
                 { path: '/task', element: <Task /> },
