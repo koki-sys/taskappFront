@@ -10,9 +10,11 @@ import LoginIcon from '@mui/icons-material/Login'
 import { AppHeader, AuthLink, NavTitle } from 'templates/Header/style'
 import { useState } from 'react'
 import { LogoutBtn } from 'templates/Logout'
+import { useRecoilValue } from 'recoil'
+import { UserAtom } from 'atoms/User'
 
 export const Header = () => {
-    const isAuth = localStorage.getItem('auth_name')
+    const userName = useRecoilValue(UserAtom)
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
 
@@ -32,7 +34,7 @@ export const Header = () => {
                 </Typography>
                 <div style={{ flexGrow: 1 }}></div>
                 {/* 認証用のコンポーネント作成 */}
-                {isAuth ? (
+                {userName ? (
                     <IconButton
                         onClick={handleClick}
                         size="small"

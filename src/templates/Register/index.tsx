@@ -6,6 +6,8 @@ import { Box, Button, CardContent, TextField, Typography } from '@mui/material'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
+import { useSetRecoilState } from 'recoil'
+import { UserAtom } from 'atoms/User'
 
 interface RegisterFormInput {
     name: string
@@ -31,6 +33,7 @@ const schema = yup.object({
 
 export const Register = () => {
     const navigate = useNavigate()
+    const userSet = useSetRecoilState(UserAtom)
 
     const {
         register,
@@ -55,7 +58,7 @@ export const Register = () => {
                 axios.post(`/api/register`, formData).then((res) => {
                     if (res.data.status === 200) {
                         localStorage.setItem('auth_token', res.data.token)
-                        localStorage.setItem('auth_name', res.data.username)
+                        userSet(res.data.name)
                         swal(
                             'ようこそ！',
                             'ログインに成功しました。',

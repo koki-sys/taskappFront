@@ -6,6 +6,8 @@ import { LoginCard, LoginForm } from 'templates/Login/style'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
+import { useSetRecoilState } from 'recoil'
+import { UserAtom } from 'atoms/User'
 
 interface LoginFormInput {
     email: string
@@ -29,6 +31,7 @@ const schema = yup.object({
 
 export const Login = () => {
     const navigate = useNavigate()
+    const userSet = useSetRecoilState(UserAtom)
 
     const {
         register,
@@ -50,7 +53,7 @@ export const Login = () => {
             axios.post(`api/login`, formData).then((res) => {
                 if (res.data.status === 200) {
                     localStorage.setItem('auth_token', res.data.token)
-                    localStorage.setItem('auth_name', res.data.username)
+                    userSet(res.data.name)
                     swal('ログイン成功', res.data.message, 'success')
                     navigate('/')
                     // eslint-disable-next-line no-restricted-globals
