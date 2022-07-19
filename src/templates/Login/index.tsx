@@ -1,6 +1,6 @@
 import swal from 'sweetalert'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { Api } from 'config/Api'
 import { CardContent, Button, Box, Typography, TextField } from '@mui/material'
 import { LoginCard, LoginForm } from 'templates/Login/style'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -49,8 +49,8 @@ export const Login = () => {
             password: inputData.password,
         }
 
-        axios.get('/sanctum/csrf-cookie').then(() => {
-            axios.post(`api/login`, formData).then((res) => {
+        Api.get('/sanctum/csrf-cookie').then(() => {
+            Api.post(`api/login`, formData).then((res) => {
                 if (res.data.status === 200) {
                     localStorage.setItem('auth_token', res.data.token)
                     userSet(res.data.name)
