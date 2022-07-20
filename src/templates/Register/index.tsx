@@ -1,4 +1,3 @@
-import axios from 'axios'
 import swal from 'sweetalert'
 import { Link, useNavigate } from 'react-router-dom'
 import { RegistCard, RegistForm } from 'templates/Register/style'
@@ -8,6 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { useSetRecoilState } from 'recoil'
 import { UserAtom } from 'atoms/User'
+import { Api } from 'config/Api'
 
 interface RegisterFormInput {
     name: string
@@ -52,10 +52,9 @@ export const Register = () => {
             password: inputData.password,
         }
 
-        axios
-            .get('/sanctum/csrf-cookie', { withCredentials: true })
+        Api.get('/sanctum/csrf-cookie', { withCredentials: true })
             .then(() => {
-                axios.post(`/api/register`, formData).then((res) => {
+                Api.post('/api/register', formData, { withCredentials: true }).then((res) => {
                     if (res.data.status === 200) {
                         localStorage.setItem('auth_token', res.data.token)
                         userSet(res.data.name)
