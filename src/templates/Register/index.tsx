@@ -52,8 +52,7 @@ export const Register = () => {
             password: inputData.password,
         }
 
-        Api
-            .get('/sanctum/csrf-cookie', { withCredentials: true })
+        Api.get('/sanctum/csrf-cookie', { withCredentials: true })
             .then(() => {
                 Api.post('/api/register', formData, { withCredentials: true }).then((res) => {
                     if (res.data.status === 200) {
