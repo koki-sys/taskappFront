@@ -1,13 +1,19 @@
 import swal from 'sweetalert'
 import { Link, useNavigate } from 'react-router-dom'
 import { RegistCard, RegistForm } from 'templates/Register/style'
-import { Box, Button, CardContent, TextField, Typography } from '@mui/material'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { useSetRecoilState } from 'recoil'
 import { UserAtom } from 'atoms/User'
 import { Api } from 'config/Api'
+import { useState } from 'react'
+import {
+    Input, InputLabel, FormHelperText, IconButton,
+    InputAdornment, Box, Button, CardContent,
+    TextField, Typography
+} from '@mui/material'
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 interface RegisterFormInput {
     name: string
@@ -42,6 +48,16 @@ export const Register = () => {
     } = useForm<RegisterFormInput>({
         resolver: yupResolver(schema),
     })
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleClickShowPassword = () => {
+        setShowPassword(!(showPassword))
+    }
+
+    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+    };
 
     const onSubmit: SubmitHandler<RegisterFormInput> = (inputData) => {
         // バリデーションチェックOK！なときに行う処理を追加
@@ -97,14 +113,25 @@ export const Register = () => {
                         />
                     </RegistForm>
                     <RegistForm variant="standard">
-                        <TextField
-                            variant="standard"
-                            type="password"
-                            label="パスワード"
+                        <InputLabel htmlFor="standard-adornment-password">パスワード</InputLabel>
+                        <Input
+                            id="standard-adornment-password"
+                            type={showPassword ? 'text' : 'password'}
                             {...register('password')}
                             error={'password' in errors}
-                            helperText={errors.password?.message}
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                    >
+                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
                         />
+                        <FormHelperText id="component-error-text">{errors.password?.message}</FormHelperText>
                     </RegistForm>
                     <Typography variant="subtitle1" sx={{ margin: '1.2rem' }}>
                         <Link to="/login">ログインはこちら</Link>
@@ -119,7 +146,7 @@ export const Register = () => {
                         </Button>
                     </Box>
                 </form>
-            </CardContent>
-        </RegistCard>
+            </CardContent >
+        </RegistCard >
     )
 }

@@ -12,4 +12,5 @@ export const LoginCard = styled(Card)({
 
 export const LoginForm = styled(FormControl)({
     margin: '1.3rem',
+    width: '60%',
 })
