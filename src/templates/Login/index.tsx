@@ -69,7 +69,7 @@ export const Login = () => {
             Api.post(`api/login`, formData).then((res) => {
                 if (res.data.status === 200) {
                     localStorage.setItem('auth_token', res.data.token)
-                    userSet(res.data.name)
+                    userSet(res.data.username)
                     swal('ログイン成功', res.data.message, 'success')
                     navigate('/')
                     // eslint-disable-next-line no-restricted-globals

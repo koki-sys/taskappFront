@@ -73,7 +73,7 @@ export const Register = () => {
                 Api.post('/api/register', formData, { withCredentials: true }).then((res) => {
                     if (res.data.status === 200) {
                         localStorage.setItem('auth_token', res.data.token)
-                        userSet(res.data.name)
+                        userSet(res.data.username)
                         swal(
                             'ようこそ！',
                             'ログインに成功しました。',
