@@ -73,7 +73,6 @@ export const Login = () => {
                     swal('ログイン成功', res.data.message, 'success')
                     navigate('/')
                     // eslint-disable-next-line no-restricted-globals
-                    location.reload()
                 } else if (res.data.status === 401) {
                     swal('注意', res.data.message, 'warning')
                 } else {
