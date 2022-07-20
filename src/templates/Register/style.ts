@@ -12,4 +12,5 @@ export const RegistCard = styled(Card)({
 
 export const RegistForm = styled(FormControl)({
     margin: '1.3rem',
+    width: '60%',
 })
