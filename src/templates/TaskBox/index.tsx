@@ -39,6 +39,7 @@ export const TaskBox = () => {
                     }}
                 >
                     <List component="nav">
+
                         <ListItem>
                             <ListItemText primary="Inbox" />
                         </ListItem>
