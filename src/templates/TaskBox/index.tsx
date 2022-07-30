@@ -2,16 +2,16 @@ import {
     Box,
     CardContent,
     Typography,
-    List,
-    ListItem,
-    ListItemText,
-    Divider,
+    List
 } from '@mui/material'
 import LaunchIcon from '@mui/icons-material/Launch'
 import { Link } from 'react-router-dom'
 import { TaskCard } from './style'
+import { TaskDigest } from 'templates/TaskDigest'
 
 export const TaskBox = () => {
+
+
     return (
         <TaskCard>
             <CardContent>
@@ -39,26 +39,7 @@ export const TaskBox = () => {
                     }}
                 >
                     <List component="nav">
-
-                        <ListItem>
-                            <ListItemText primary="Inbox" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem>
-                            <ListItemText primary="Drafts" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem>
-                            <ListItemText primary="Trash" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem>
-                            <ListItemText primary="Spam" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem>
-                            <ListItemText primary="Trash" />
-                        </ListItem>
+                        <TaskDigest />
                     </List>
                 </Box>
             </CardContent>

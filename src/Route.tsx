@@ -18,6 +18,7 @@ export const RootRouter = () => {
                 element: <HeaderLayout />,
                 children: [
                     { path: '/', element: <LoginHelp /> },
+                    { path: '/task/*', element: <LoginHelp /> },
                     { path: '/register', element: <RegisterPage /> },
                     { path: '/login', element: <LoginPage /> },
                 ],

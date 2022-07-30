@@ -2,8 +2,8 @@ import { atom } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
 
 type UserType = {
-    name: string,
-    
+    id: number,
+    name: string
 }
 
 const { persistAtom } = recoilPersist({
@@ -12,7 +12,7 @@ const { persistAtom } = recoilPersist({
 })
 
 export const UserAtom = atom<UserType>({
-    key: 'auth_name',
+    key: 'auth',
     default: undefined,
     effects_UNSTABLE: [persistAtom]
 })
